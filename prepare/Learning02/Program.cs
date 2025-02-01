@@ -11,8 +11,6 @@ class Program
         job1._company = "Microsoft";
         job1._startYear = 2015;
         job1._endYear = 2020;
-  
-
 
         Job job2 = new Job();
         job2._jobTitle = "Software Engineer";
