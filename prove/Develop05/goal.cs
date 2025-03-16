@@ -20,6 +20,10 @@ public class Goal {
 
 
     }
+    public virtual string GetDetails()
+{
+    return $"{_title} - {_description}";
+}
     public virtual void IsComplete(){
         _isComplete = true;
         

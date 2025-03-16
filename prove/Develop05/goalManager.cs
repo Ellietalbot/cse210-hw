@@ -6,9 +6,43 @@ class GoalManager {
     private int _totalPoints = 0;
     private string _filename = "goals.txt";
 
-    public void AddGoal(Goal goal) {
+public void AddGoal(Goal goal) {
         _goalList.Add(goal);
+}
+public void DeleteGoal()
+{
+    Console.WriteLine("Please select a goal to delete:");
+    DisplayGoals();
+
+    if (int.TryParse(Console.ReadLine(), out int selection))
+    {
+        if (selection >= 1 && selection <= GetGoalListCount())
+        {
+            Goal goalToDelete = GetGoalAt(selection - 1);
+
+            Console.WriteLine($"Are you sure you want to delete \"{goalToDelete.GetDetails()}\"? (yes/no)");
+            string confirmation = Console.ReadLine().Trim().ToLower();
+
+            if (confirmation == "yes")
+            {
+                _goalList.RemoveAt(selection - 1);
+                Console.WriteLine("Goal deleted successfully!");
+            }
+            else
+            {
+                Console.WriteLine("Goal deletion canceled.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Invalid goal selection. Please try again.");
+        }
     }
+    else
+    {
+        Console.WriteLine("Invalid input. Please enter a number.");
+    }
+}
 
 
 public void DisplayGoals() {

@@ -22,7 +22,8 @@ class Program
         Console.WriteLine("3. Save Goals");
         Console.WriteLine("4. Load Goals");
         Console.WriteLine("5. Record Event");
-        Console.WriteLine("6. Exit");
+        Console.WriteLine("6. Delete Goal");
+        Console.WriteLine("7. Exit");
         Console.Write("Select a choice from the menu: ");
 
         if (int.TryParse(Console.ReadLine(), out int menuChoice))
@@ -61,8 +62,10 @@ class Program
 
                 case 6:
                     Console.Clear();
+                    goalManager.DeleteGoal();
+                    break;
+                case 7: 
                     running = false;
-                    
                     break;
 
                 default:
